@@ -1,8 +1,6 @@
 # software-construction-microservices
 
 
-##How Netflix uses Microservices?
-
 Netflix is one of the world’s largest streaming platforms, serving millions of users globally. To support massive scale, high availability, and continuous innovation, Netflix uses a **microservices architecture** instead of a traditional monolithic system.
 
 ## Why Netflix Moved to Microservices
@@ -76,4 +74,103 @@ This enables fast innovation and frequent feature releases.
 
 
 
-##Companies that moved to microservices and had to go back to Monolithic and why?
+## Companies that moved to microservices and had to go back to Monolithic and why?
+Many companies adopted microservices for scalability and agility, but some later reverted to monolithic (or more centralized) architectures because microservices introduced excessive complexity, cost, and operational overhead.
+
+Here are notable examples:
+
+### 1. Amazon (Some Internal Teams)
+
+Although Amazon is famous for pioneering microservices, some internal teams have moved certain systems back toward modular monoliths.
+
+**Why?**
+
+Too many small services created high operational complexity
+
+Increased network latency due to excessive service-to-service calls
+
+Difficult debugging across distributed systems
+
+Higher infrastructure and DevOps costs
+
+Lesson:
+
+Microservices work at massive scale, but not every subsystem needs to be distributed. Some services were merged for simplicity and performance.
+
+### 2. Segment
+
+Segment initially adopted microservices but later consolidated parts of their system.
+
+**Why?**
+
+Complex distributed system debugging
+
+Operational burden managing many services
+
+Slower developer productivity
+
+Coordination challenges between teams
+
+They found that for their size and workload at the time, microservices added more problems than benefits.
+
+### 3. InVision
+
+InVision publicly discussed architectural simplification efforts.
+
+**Why?**
+
+Microservices required heavy DevOps investment
+
+High infrastructure cost
+
+System became harder to reason about
+
+Communication overhead between services
+
+They moved toward consolidation to reduce engineering overhead.
+
+### 4. Shopify (Selective Consolidation)
+
+Shopify experimented with microservices but maintains large modular components.
+
+**Why?**
+
+Too many services caused latency
+
+Deployment coordination complexity
+
+Data consistency issues
+
+They favor a “modular monolith” approach for many core systems while using microservices where truly needed.
+
+## Why Companies Go Back to Monoliths
+
+Common reasons include:
+
+### 1. Over-Engineering
+
+Microservices were adopted too early without real scaling needs.
+
+### 2. Operational Complexity
+
+Service discovery
+
+Distributed tracing
+
+Monitoring
+
+CI/CD for dozens or hundreds of services
+
+Requires strong DevOps maturity.
+
+### 3. Network Latency
+
+Inter-service communication over the network is slower than in-process function calls.
+
+### 4. Higher Costs
+
+More servers, containers, orchestration tools (e.g., Kubernetes), monitoring systems.
+
+### 5. Harder Debugging
+
+Tracing a single user request across 10–20 services is difficult.
